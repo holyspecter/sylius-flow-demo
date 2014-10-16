@@ -1,0 +1,5 @@
+vendor/
+.idea/
+app/cache/
+!app/cache/.gitkeep
+app/bootstrap.php.cache

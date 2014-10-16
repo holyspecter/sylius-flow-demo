@@ -1,0 +1,7 @@
+services:
+    sylius.scenario.flow:
+        class: Hospect\AppBundle\Process\Scenario\UserScenario
+        calls:
+            - [ setContainer, [@service_container] ]
+        tags:
+            - { name: sylius.process.scenario, alias: user }

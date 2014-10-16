@@ -1,0 +1,4 @@
+hospect_app:
+    resource: "@HospectAppBundle/Resources/config/routing.yml"
+    prefix:   /
+

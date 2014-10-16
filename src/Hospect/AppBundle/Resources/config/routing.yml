@@ -1,0 +1,7 @@
+hospect_app_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: HospectAppBundle:Default:index }
+
+sylius_flow:
+    resource: @SyliusFlowBundle/Resources/config/routing.yml
+    prefix: /
