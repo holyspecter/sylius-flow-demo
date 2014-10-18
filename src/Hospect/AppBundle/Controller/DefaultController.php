@@ -6,8 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('HospectAppBundle:Default:index.html.twig', array('name' => $name));
+        $users = $this
+            ->get('doctrine.orm.default_entity_manager')
+            ->getRepository('HospectAppBundle:User')
+            ->findAll();
+
+        return $this->render('HospectAppBundle:Default:index.html.twig', [
+            'users' => $users,
+        ]);
     }
 }

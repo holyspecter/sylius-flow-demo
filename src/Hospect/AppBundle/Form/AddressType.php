@@ -2,19 +2,30 @@
 
 namespace Hospect\AppBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MainInfoType extends AbstractType
+class AddressType extends AbstractType
 {
     /** {@inheritdoc} */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('login', 'text')
-            ->add('password', 'password')
-            ->add('name', 'text');
+            ->add('country', 'choice', [
+                'choices' => [
+                    'Poland',
+                    'France',
+                    'Great Britain',
+                ],
+            ])
+            ->add('region', 'text', [
+                'required' => false,
+            ])
+            ->add('street', 'text', [
+                'required' => false,
+            ]);
+
     }
 
     /** {@inheritdoc} */
@@ -22,7 +33,7 @@ class MainInfoType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class'        => 'Hospect\AppBundle\Entity\User',
-            'validation_groups' => ['main'],
+            'validation_groups' => ['address'],
         ]);
     }
 

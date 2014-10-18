@@ -3,3 +3,4 @@ vendor/
 app/cache/
 !app/cache/.gitkeep
 app/bootstrap.php.cache
+app/logs/*.log

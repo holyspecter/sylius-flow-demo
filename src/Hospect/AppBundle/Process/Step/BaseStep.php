@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 abstract class BaseStep extends ControllerStep
 {
     const USER = 'user';
-    
+
     /** {@inheritdoc} */
     public function displayAction(ProcessContextInterface $context)
     {
@@ -34,7 +34,7 @@ abstract class BaseStep extends ControllerStep
     }
 
     /**
-     * @param Form $form
+     * @param Form                    $form
      * @param ProcessContextInterface $context
      *
      * @return Response

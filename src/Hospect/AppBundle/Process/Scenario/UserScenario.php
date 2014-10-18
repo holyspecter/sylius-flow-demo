@@ -2,6 +2,7 @@
 
 namespace Hospect\AppBundle\Process\Scenario;
 
+use Hospect\AppBundle\Process\Step\AddressStep;
 use Hospect\AppBundle\Process\Step\MainStep;
 use Sylius\Bundle\FlowBundle\Process\Scenario\ProcessScenarioInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
@@ -13,6 +14,8 @@ class UserScenario extends ContainerAware implements ProcessScenarioInterface
     public function build(ProcessBuilderInterface $builder)
     {
         $builder
-            ->add('main', new MainStep());
+            ->add('main', new MainStep())
+            ->add('address', new AddressStep())
+            ->setRedirect('hospect_app_homepage');
     }
 } 

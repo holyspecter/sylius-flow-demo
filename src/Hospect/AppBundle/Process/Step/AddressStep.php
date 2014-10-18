@@ -2,20 +2,13 @@
 
 namespace Hospect\AppBundle\Process\Step;
 
+use Hospect\AppBundle\Form\AddressType;
 use Hospect\AppBundle\Form\MainInfoType;
 use Symfony\Component\Form\Form;
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
 
-class MainStep extends BaseStep
+class AddressStep extends BaseStep
 {
-    /** {@inheritdoc} */
-    public function displayAction(ProcessContextInterface $context)
-    {
-        $context->getStorage()->remove(self::USER);
-
-        return parent::displayAction($context);
-    }
-
     /** {@inheritdoc} */
     protected function createView(Form $form, ProcessContextInterface $context)
     {
@@ -28,13 +21,14 @@ class MainStep extends BaseStep
     /** {@inheritdoc} */
     protected function getStepForm($data = null)
     {
-        return $this->createForm(new MainInfoType(), $data);
+        return $this->createForm(new AddressType(), $data);
     }
 
     /** {@inheritdoc} */
     protected function onFormValid(Form $form, ProcessContextInterface $context)
     {
-        $context->getStorage()->set(self::USER, $form->getData());
+        $this->get('doctrine.orm.default_entity_manager')->persist($form->getData());
+        $this->get('doctrine.orm.default_entity_manager')->flush();
 
         return $this->complete();
     }

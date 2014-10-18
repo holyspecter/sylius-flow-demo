@@ -1,1 +1,13 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    Registered users are:
+    <ul>
+        {% for user in users %}
+            <li>{{ user.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ path('sylius_flow_start', {'scenarioAlias': 'user'}) }}">
+        Add user
+    </a>
+{% endblock %}

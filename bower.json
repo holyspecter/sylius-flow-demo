@@ -1,0 +1,20 @@
+{
+  "name": "sylius-flow",
+  "version": "0.0.1",
+  "homepage": "https://github.com/holyspecter/sylius-flow-demo",
+  "authors": [
+    "hospect <hospect@gmail.com>"
+  ],
+  "description": "Demonstration of Sylius flow",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0"
+  }
+}

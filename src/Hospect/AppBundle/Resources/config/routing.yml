@@ -1,5 +1,5 @@
 hospect_app_homepage:
-    path:     /hello/{name}
+    path:     /
     defaults: { _controller: HospectAppBundle:Default:index }
 
 sylius_flow:
